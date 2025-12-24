@@ -1,0 +1,395 @@
+/* --- Variabel Warna Tema Jawa --- */
+:root {
+    --gold-primary: #D4AF37;
+    --gold-secondary: #C5A028;
+    --brown-dark: #4A3221;
+    --cream-bg: #FFF8E7;
+    --batik-overlay: rgba(74, 50, 33, 0.05); /* Coklat transparan */
+}
+
+/* --- Font Setup --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Background solid krem sebagai dasar */
+    background-color: var(--cream-bg); 
+    color: var(--brown-dark);
+    overflow-x: hidden;
+    position: relative;
+}
+
+h1, h2, h3 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--gold-primary);
+    font-weight: 700;
+}
+
+/* Aksen teks Jawa */
+.ornament-top, .ornament-section {
+    font-family: 'Noto Serif Javanese', serif;
+    font-size: 1.5rem;
+    color: var(--gold-secondary);
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Quote Jawa */
+.javanese-quote {
+    font-style: italic;
+    color: var(--gold-secondary);
+    margin: 20px 0;
+}
+
+.couple-name, .javanese-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+    color: var(--gold-primary);
+}
+
+/* --- Background Batik Berjalan (Scrolling Animation) --- */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%; /* Lebar ganda untuk scrolling mulus */
+    height: 200%;
+    /* Placeholder Batik Parang Seamless - Ganti dengan URL gambar batik seamless asli Anda agar tidak patah */
+    background-image: url('https://www.transparentpng.com/cats/batik-1962.html'); 
+    background-size: 400px 400px; /* Ukuran pola */
+    background-repeat: repeat;
+    opacity: 0.15; /* Transparansi */
+    z-index: -2;
+    /* Animasi berjalan miring */
+    animation: scrollBatik 60s linear infinite; 
+}
+
+@keyframes scrollBatik {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-200px, -200px); }
+}
+
+/* --- Elemen Dekorasi Melayang (Floating Cute Elements) --- */
+.decoration-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Agar tidak mengganggu klik */
+    z-index: 2001; /* Di atas intro cover */
+}
+
+.javanese-element {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+/* Gunungan Kiri */
+.gunungan-left {
+    width: 100px;
+    height: 150px;
+    top: 20px;
+    left: 20px;
+    /* Ganti dengan URL gambar Gunungan/Wayang lucu */
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3389/3389778.png'); 
+    animation: floatBob 4s ease-in-out infinite alternate;
+}
+
+/* Gunungan Kanan (dibalik) */
+.gunungan-right {
+    width: 100px;
+    height: 150px;
+    top: 20px;
+    right: 20px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3389/3389778.png');
+    transform: scaleX(-1); /* Membalik gambar */
+    animation: floatBob 5s ease-in-out infinite alternate-reverse;
+}
+
+/* Animasi Melayang-layang Lucu */
+@keyframes floatBob {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-20px) rotate(2deg); }
+}
+
+/* --- Intro Cover --- */
+.intro-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Ganti background intro dengan warna solid + overlay di body */
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--brown-dark);
+    z-index: 2000;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px); /* Efek blur di belakang intro */
+}
+
+.intro-cover h1 {
+    font-size: 4em;
+    margin: 0.2em 0;
+    color: var(--gold-primary);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* --- Buttons (dengan Efek Goyang Lucu) --- */
+.enter-button, .next-button {
+    background: var(--gold-primary);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1em;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.enter-button:hover, .next-button:hover {
+    background: var(--gold-secondary);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+    /* Animasi goyang saat hover */
+    animation: wobble 0.5s ease-in-out both;
+}
+
+@keyframes wobble {
+    0%, 100% { transform: translateX(0%) scale(1.05); transform-origin: 50% 50%; }
+    15% { transform: translateX(-4px) rotate(-2deg) scale(1.05); }
+    30% { transform: translateX(calc(4px / 2)) rotate(2deg) scale(1.05); }
+    45% { transform: translateX(calc(-4px / 2)) rotate(-1.2deg) scale(1.05); }
+    60% { transform: translateX(calc(4px / 3.3)) rotate(0.8deg) scale(1.05); }
+    75% { transform: translateX(calc(-4px / 5.5)) rotate(-0.4deg) scale(1.05); }
+}
+
+/* --- Main Container & Sections --- */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    /* Background putih gading dengan border emas tipis */
+    background: rgba(255, 254, 250, 0.95);
+    border-radius: 20px;
+    border: 2px solid var(--gold-primary);
+    box-shadow: 0 10px 30px rgba(74, 50, 33, 0.15);
+    /* ... animasi container lama tetap sama ... */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* --- Section Content Styling --- */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid var(--gold-primary);
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.event-box {
+    background: var(--cream-bg);
+    border: 1px solid var(--gold-primary);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 15px 0;
+    box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.1);
+}
+
+/* --- Maps & Video --- */
+.map-frame, .video-wrapper {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid var(--gold-primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 20px auto;
+}
+.map-frame iframe, .video-wrapper iframe {
+    width: 100%;
+    display: block;
+}
+.map-link {
+    color: var(--gold-secondary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* --- Gallery --- */
+.gallery img {
+    width: 180px;
+    height: 250px; /* Portrait orientation */
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 10px;
+    border: 3px solid var(--gold-primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+.gallery img:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+/* --- Navigasi Tombol Lucu --- */
+.nav-buttons button {
+    background: var(--gold-primary);
+    color: var(--brown-dark);
+    /* ... sisa style lama ... */
+    border: 2px solid white;
+}
+.nav-buttons button:hover {
+    background: var(--gold-secondary);
+    color: white;
+    /* Tambah efek wobble juga di sini */
+    animation: wobble 0.4s ease-in-out both;
+}
+
+/* --- Responsive Fixes --- */
+@media (max-width: 768px) {
+    .intro-cover h1 { font-size: 2.8em; }
+    .gunungan-left, .gunungan-right {
+        width: 70px;
+        height: 100px;
+    }
+    .gallery img {
+        width: 45%;
+        height: auto;
+    }
+}
+/* Gunakan CSS lama untuk bagian yang tidak diubah */
+.intro-cover.hidden { opacity: 0; pointer-events: none; }
+.container.show { opacity: 1; transform: translateY(0); }
+.section { padding: 40px 20px; text-align: center; display: none; opacity: 0; transform: translateY(50px); transition: opacity 1.5s ease-out, transform 1.5s ease-out; }
+.section.show { display: block; opacity: 1; transform: translateY(0); animation: slideIn 1s ease-out; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+.countdown { font-size: 2em; color: var(--gold-secondary); font-weight: bold; margin: 20px 0; }
+.gallery { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+.nav-buttons { position: fixed; top: 50%; right: 10px; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+.nav-buttons button { border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5em; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.2s; }
+.audio-player { position: fixed; bottom: 20px; left: 20px; z-index: 1000; }
+.audio-player audio { width: 200px; border-radius: 25px; opacity: 0.7; transition: opacity 0.3s;}
+.audio-player audio:hover { opacity: 1;}
+/* --- Style Nama Tamu di Cover --- */
+.guest-container {
+    margin: 20px 0 30px 0;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.6); /* Latar putih transparan */
+    border: 1px solid var(--gold-primary);
+    border-radius: 15px;
+    backdrop-filter: blur(5px); /* Efek blur di belakang kotak */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    animation: fadeInUp 2s ease-out; /* Animasi muncul */
+    max-width: 80%
+}
+
+.guest-container p {
+    font-size: 0.9em;
+    margin: 0;
+    color: var(--brown-dark);
+    font-family: 'Poppins', sans-serif;
+}
+
+.guest-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+    margin: 5px 0 0 0;
+    color: var(--gold-primary); /* Warna Emas */
+    font-weight: bold;
+    text-transform: capitalize; /* Huruf depan otomatis besar */
+    word-wrap: break-word;
+}
+/* --- Dekorasi Ala Canva di Cover --- */
+
+/* Wrapper konten agar teks tetap di atas gambar dekorasi */
+.intro-content {
+    position: relative;
+    z-index: 10; /* Pastikan teks & tombol di atas hiasan */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canva-deco {
+    position: absolute;
+    pointer-events: none; /* Agar tidak menghalangi klik tombol */
+    opacity: 0.9;
+    z-index: 1; /* Di bawah teks */
+}
+
+/* 1. Hiasan Sudut Atas Kiri */
+.top-left {
+    top: 0;
+    left: 0;
+    width: 250px; /* Sesuaikan ukuran */
+    max-width: 40vw; /* Responsif di HP */
+    animation: swingIn 3s ease-in-out infinite alternate;
+}
+
+/* 2. Hiasan Sudut Atas Kanan */
+.top-right {
+    top: 0;
+    right: 0;
+    width: 250px;
+    max-width: 40vw;
+    transform: scaleX(-1); /* Membalik gambar (mirror) */
+    animation: swingIn 3.5s ease-in-out infinite alternate-reverse;
+}
+
+/* 3. Hiasan Bawah (Gunungan) */
+.bottom-center {
+    bottom: -50px; /* Sedikit tenggelam ke bawah */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    max-width: 60vw;
+    opacity: 0.3; /* Transparan agar tidak menabrak tombol */
+    animation: breathe 4s ease-in-out infinite;
+}
+
+/* --- Animasi Dekorasi --- */
+
+/* Animasi Ayunan Halus untuk Bunga Sudut */
+@keyframes swingIn {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(3deg) scale(1.05); }
+}
+
+/* Khusus untuk yang kanan (perlu retain scaleX-1) */
+.top-right {
+    animation: swingInRight 3.5s ease-in-out infinite alternate;
+}
+@keyframes swingInRight {
+    0% { transform: scaleX(-1) rotate(0deg); }
+    100% { transform: scaleX(-1) rotate(-3deg); }
+}
+
+/* Animasi Bernapas untuk Gunungan */
+@keyframes breathe {
+    0% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+    50% { transform: translateX(-50%) scale(1.05); opacity: 0.5; }
+    100% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+}
+
+/* --- Responsif untuk HP --- */
+@media (max-width: 768px) {
+    .top-left, .top-right {
+        width: 150px; /* Perkecil di HP */
+    }
+    .bottom-center {
+        width: 200px;
+        bottom: -20px;
+    }
+}

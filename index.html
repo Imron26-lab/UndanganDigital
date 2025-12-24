@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Mohamad Al-Imron & Rizka Amellya</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- Link ke CSS eksternal -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Intro Cover -->
+    <div class="intro-cover" id="intro-cover">
+        
+        <img src="https://i.ibb.co/vzvrJq9/gold-corner-ornament.png" class="canva-deco top-left" alt="Hiasan Jawa">
+        
+        <img src="https://i.ibb.co/vzvrJq9/gold-corner-ornament.png" class="canva-deco top-right" alt="Hiasan Jawa">
+
+        <img src="https://ibb.co.com/mrP7Ch38" class="canva-deco bottom-center" alt="Gunungan">
+        <div class="intro-content">
+            <div class="ornament-top">ꦱꦸꦒꦼꦁꦫꦮꦸꦃ</div> 
+            <h1>Undangan Pernikahan</h1>
+            <p>Mohamad Al-Imron & Rizka Amellya</p>
+            <p>31 Mei 2026</p>
+
+            <div class="guest-container">
+                <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <h3 id="guest-name" class="guest-name">Tamu Undangan</h3>
+            </div>
+
+            <button class="enter-button" onclick="enterInvitation()">Masuk ke Undangan</button>
+        </div>
+    </div>
+
+    <!-- Audio Player untuk Lagu Pernikahan -->
+    <div class="audio-player">
+        <audio controls autoplay loop>
+            <source src="https://youtu.be/viW0M5R2BLo?si=jhpia5zXMS-4zdmj" type="audio/wav"> <!-- Placeholder lagu pernikahan; ganti dengan URL lagu asli -->
+            Browser Anda tidak mendukung audio.
+        </audio>
+    </div>
+
+    <!-- Tombol Navigasi Lucu (Floating Buttons) -->
+    <div class="nav-buttons" id="nav-buttons" style="display: none;">
+        <button onclick="scrollToSection('opening')">🏠</button> 
+        
+        <button onclick="scrollToSection('salam')">👋</button>
+        <button onclick="scrollToSection('bride')">👰</button>
+        <button onclick="scrollToSection('groom')">🤵</button>
+        <button onclick="scrollToSection('acara')">🎉</button>
+        <button onclick="scrollToSection('maps')">🗺️</button>
+        <button onclick="scrollToSection('video')">🎥</button>
+        <button onclick="scrollToSection('galeri')">📸</button>
+        <button onclick="scrollToSection('undang')">👥</button>
+        <button onclick="scrollToSection('thanks')">❤️</button>
+    </div>
+
+    <div class="container" id="main-container">
+        <!-- Opening -->
+        <div class="section show" id="opening">
+            <h2>MUKADIMAH</h2>
+            <div class="ornament-section">ꦧꦼꦧꦸꦏ</div> <p>"Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, perkenankanlah kami merangkai kasih sayang yang Kau ciptakan di antara kami."</p>
+            <p class="javanese-quote">"Niat ingsun nambut silaning akrami, mugi dados keluarga ingkang sakinah, mawaddah, warahmah."</p>
+            <button class="next-button" onclick="nextSection('salam')">Selanjutnya</button>
+        </div>
+
+        <!-- Salam -->
+        <div class="section" id="salam">
+            <h2>Salam Pembuka</h2>
+            <p>Assalamualaikum Warahmatullahi Wabarakatuh</p>
+            <p>Waktu menuju hari bahagia kami:</p>
+            <div class="countdown" id="countdown"></div>
+            <button class="next-button" onclick="nextSection('bride')">Selanjutnya</button>
+        </div>
+
+        <!-- Bride -->
+        <div class="section" id="bride">
+            <h2>Bride</h2>
+            <p>Identitas: Putri dari Bapak [Nama Ayah] dan Ibu [Nama Ibu]</p>
+            <p>Nama: Rizka Amellya</p>
+            <p>Instagram: <a href="https://instagram.com/rizkaamellya" target="_blank">@rizkaamellya</a></p>
+            <button class="next-button" onclick="nextSection('groom')">Selanjutnya</button>
+        </div>
+
+        <!-- Groom -->
+        <div class="section" id="groom">
+            <h2>Groom</h2>
+            <p>Identitas: Putra dari Bapak [Nama Ayah] dan Ibu [Nama Ibu]</p>
+            <p>Nama: Mohamad Al-Imron</p>
+            <p>Instagram: <a href="https://instagram.com/mohamad_alimron" target="_blank">@mohamad_alimron</a></p>
+            <button class="next-button" onclick="nextSection('acara')">Selanjutnya</button>
+        </div>
+
+        <!-- Acara -->
+        <div class="section" id="acara">
+            <h2>Acara</h2>
+            <p><strong>Akad Nikah:</strong> 31 Mei 2026, Pukul 08:00 - 09:00 WIB</p>
+            <p><strong>Resepsi:</strong> 31 Mei 2026, Pukul 11:00 - 15:00 WIB</p>
+            <button class="next-button" onclick="nextSection('maps')">Selanjutnya</button>
+        </div>
+
+        <!-- Maps -->
+        <div class="section" id="maps">
+            <h2>Maps</h2>
+            <p>Alamat: Gedung Serbaguna, Jl. Contoh No. 123, Jakarta Pusat</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.816666!3d-6.200000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9fb1!2sMonas!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+            <p><a href="https://maps.google.com/?q=Gedung+Serbaguna,+Jl.+Contoh+No.+123,+Jakarta+Pusat" target="_blank">Klik untuk Petunjuk Lokasi</a></p>
+            <button class="next-button" onclick="nextSection('video')">Selanjutnya</button>
+        </div>
+
+        <!-- Video -->
+        <div class="section" id="video">
+            <h2>Video Prewedding</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/watch?v=viW0M5R2BLo&list=RDviW0M5R2BLo&start_radio=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p><em>"Cinta adalah ketika dua jiwa bertemu dan saling melengkapi."</em></p>
+            <button class="next-button" onclick="nextSection('galeri')">Selanjutnya</button>
+        </div>
+
+        <!-- Galeri -->
+        <div class="section" id="galeri">
+            <h2>Galeri Memori</h2>
+            <div class="gallery">
+                <img src="https://via.placeholder.com/200?text=Foto+1" alt="Foto Prewedding 1">
+                <img src="https://via.placeholder.com/200?text=Foto+2" alt="Foto Prewedding 2">
+                <img src="https://via.placeholder.com/200?text=Foto+3" alt="Foto Prewedding 3">
+                <img src="https://via.placeholder.com/200?text=Foto+4" alt="Foto Prewedding 4">
+            </div>
+            <button class="next-button" onclick="nextSection('undang')">Selanjutnya</button>
+        </div>
+
+        <!-- Turut Mengundang -->
+        <div class="section" id="undang">
+            <h2>Turut Mengundang</h2>
+            <p>Keluarga besar, sahabat, dan rekan-rekan tercinta.</p>
+            <button class="next-button" onclick="nextSection('thanks')">Selanjutnya</button>
+        </div>
+
+        <!-- Thanks -->
+        <div class="section" id="thanks">
+            <h2>Thanks</h2>
+            <p>Terima kasih atas kehadiran dan doa restu Anda. Semoga Allah SWT selalu memberikan kebahagiaan.</p>
+            <p><em>"Pernikahan adalah awal dari kehidupan baru yang penuh cinta dan harmoni."</em></p>
+            <!-- Tidak ada tombol selanjutnya di akhir -->
+        </div>
+    </div>
+
+    <!-- Link ke JavaScript eksternal -->
+    <script src="script.js"></script>
+</body>
+</html>
